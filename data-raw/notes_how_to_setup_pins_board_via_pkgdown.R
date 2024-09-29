@@ -179,7 +179,7 @@ pkgdown::build_site()
 
 # With an up-to-date manifest file, a board_url() can behave as a read-only version of a board_folder(). Let’s create a board_url() using our fake URL:
 
-gboard  <- board_url("https://ejanalysis/github.io/ejscreendata/data/")
+gboard  <- board_url("https://ejanalysis.github.io/ejscreendata/data")
 
 gboard  %>% pin_list()
 
