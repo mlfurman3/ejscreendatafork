@@ -4,7 +4,7 @@ Title: Datasets for EJAM-EJScreen
 Version: 0.1.0
 Author: ejanalysis
 Maintainer: ejanalysis <info@ejanalysis.com>
-URL: https://ejanalysis.github.io/ejscreendata/, https://github.com/ejanalysis/ejscreendata
+URL: https://ejanalysis.github.io/ejscreendata/
 Description: Data tables of blockgroup demographics from EPA EJScreen
     and EPA-regulated facilities from EPA Facility Registry Services (FRS)
     etc. to support EJAM

@@ -171,7 +171,8 @@ board %>% write_board_manifest()
 
 # NOW PUBLISH VIA pkgdown::build_site() ####
 
-pkgdown::build_site()
+pkgdown::build_site_github_pages()
+# pkgdown::build_site()
 
 ####################################### #
 
