@@ -163,7 +163,7 @@ for (i in seq_along(varnames)) {
     rm(x)
   }
 }
-rm(board, pin_name, pin_description, pin_title, i, type, meta)
+rm( pin_name, pin_description, pin_title, i, type) # board, meta  may be used again
 ####################################### #
 
 # WRITE MANIFEST every time files are updated/added, BEFORE PUBLISHING board ####
