@@ -65,9 +65,10 @@ board = pins::board_folder(here::here("pkgdown/assets/data"))
 #   "bgid2fips", "frs", "frs_by_programid", "frs_by_naics", "frs_by_sic",
 #   "frs_by_mact")
 
-varnames = c("blockwts", "blockpoints", "blockid2fips", "quaddata", "bgej",
+allvarnames = c("blockwts", "blockpoints", "blockid2fips", "quaddata", "bgej",
              "bgid2fips", "frs", "frs_by_programid", "frs_by_naics", "frs_by_sic",
              "frs_by_mact")
+varnames <- allvarnames
 
 ## check access to the files on the posit connect server pins board ####
 
@@ -121,14 +122,15 @@ print(meta)
 type = "arrow"
 
 # test for 1 first
-varnames = varnames[1]
+# varnames = varnames[1]
+# varnames = "bgid2fips"
 
 for (i in seq_along(varnames)) {
 
   if (!exists(varnames[i])) {
     warning(paste0("Cannot find ", varnames[i], " so it was not saved to pins."))
   } else {
-    cat("pinning ", varnames[i], "\n")
+    cat("pinning", varnames[i], "\n")
 
     if (varnames[i] %in% metadata4pins$varlist) {
       pin_name = metadata4pins$name[metadata4pins$varlist == varnames[i]]
@@ -140,7 +142,7 @@ for (i in seq_along(varnames)) {
       pin_description = varnames[i]
     }
 
-    pin_name <-    varnames[i]  # ????? # ***      paste0(boardfolder, "/", varnames[i])
+    # pin_name <-    varnames[i]  # ????? # ***      paste0(boardfolder, "/", varnames[i])
 
     text_to_do <- paste0("pins::pin_write(",
                          "board = board, ",
@@ -161,26 +163,37 @@ for (i in seq_along(varnames)) {
     rm(x)
   }
 }
+rm(board, pin_name, pin_description, pin_title, i, type, meta)
 ####################################### #
 
-# WRITE MANIFEST BEFORE PUBLISHING IT ####
+# WRITE MANIFEST every time files are updated/added, BEFORE PUBLISHING board ####
 
 board %>% write_board_manifest()
-
+fs::path(board$path, "_pins.yaml") %>% readLines() %>% cat(sep = "\n")
 ####################################### #
 
 # NOW PUBLISH VIA pkgdown::build_site() ####
 
-pkgdown::build_site_github_pages()
-# pkgdown::build_site()
+# pkgdown::build_site_github_pages()
+  pkgdown::build_site()
 
-####################################### #
+# COMMIT AND PUSH CHANGES
+
+
+# AND
+
+browseURL("https://github.com/ejanalysis/ejscreendata/actions")
+browseURL("https://github.com/ejanalysis/ejscreendata/settings/pages")
+browseURL("https://ejanalysis.github.io/ejscreendata/")
+
+####################################### ######################################## #
+####################################### ######################################## #
 
 # HOW TO READ THOSE PINS NOW ####
 
 # With an up-to-date manifest file, a board_url() can behave as a read-only version of a board_folder(). Let’s create a board_url() using our fake URL:
 
-gboard  <- board_url("https://ejanalysis.github.io/ejscreendata/data")
+gboard  <- board_url("https://ejanalysis.github.io/ejscreendata/data/")
 
 gboard  %>% pin_list()
 
