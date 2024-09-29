@@ -1,0 +1,14 @@
+file: bgid2fips.arrow
+file_size: 3123434
+pin_hash: 04aaed7a3c8a3087
+type: arrow
+title: bgid2fips data for EJAM
+description: data.table of approx 242k blockgroups with Census FIPS for each blockgroup
+  ID - See documentation in EJAM package
+tags: ~
+urls: ~
+created: 20240929T212415Z
+api_version: 1
+user:
+  date_pins_updated: '2024-09-29'
+  ejscreen_version: '2.32'
