@@ -1,0 +1,13 @@
+file: frs.arrow
+file_size: 153098186
+pin_hash: 4a24103da1576047
+type: arrow
+title: frs data from EJScreen for EJAM
+description: data.table -- See documentation in EJAM package
+tags: ~
+urls: ~
+created: 20240930T032502Z
+api_version: 1
+user:
+  date_pins_updated: '2024-09-29'
+  ejscreen_version: '2.32'

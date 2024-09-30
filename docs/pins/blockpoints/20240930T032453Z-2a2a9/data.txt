@@ -1,0 +1,14 @@
+file: blockpoints.arrow
+file_size: 163548394
+pin_hash: 2a2a9d7f3f7654e9
+type: arrow
+title: blockpoints data for EJAM
+description: data.table of approx 8 million Census blocks with blockid, lat, lon -
+  See documentation in EJAM package
+tags: ~
+urls: ~
+created: 20240930T032453Z
+api_version: 1
+user:
+  date_pins_updated: '2024-09-29'
+  ejscreen_version: '2.32'
