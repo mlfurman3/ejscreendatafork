@@ -39,7 +39,8 @@
 library(usethis)
 library(pins)
 library(pkgdown)
-library(EJAM)
+library(EJAM) # once it is public...
+# see https://usepa.github.io/EJAM/articles/1_installing.html
 
 ## did once already - only need to do it once ever ####
 
