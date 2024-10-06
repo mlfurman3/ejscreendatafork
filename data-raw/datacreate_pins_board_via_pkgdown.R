@@ -205,18 +205,19 @@ browseURL("https://ejanalysis.github.io/ejscreendata/")
 
 # With an up-to-date manifest file, a board_url() can behave as a read-only version of a board_folder().
 
+library(pins)
 
 gurl <- "https://ejanalysis.github.io/ejscreendata/data/"
-gboard  <- board_url(gurl)
+gboard  <- pins::board_url(gurl)
 
-gboard  %>% pin_list()
-# gboard  %>% pin_search()
-# gboard %>% pin_read("blockwts")
+gboard  %>% pins::pin_list()
+# gboard  %>% pins::pin_search()
+# gboard %>% pins::pin_read("blockwts")
 
-dataload_from_urlpins("bgid2fips", justchecking = TRUE)
+library(EJAM)
+EJAM::dataload_from_urlpins("bgid2fips", justchecking = TRUE)
 
-
-dataload_from_urlpins("bgid2fips")
+EJAM::dataload_from_urlpins("bgid2fips")
 
 
 ####################################### #
