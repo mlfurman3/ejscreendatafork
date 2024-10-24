@@ -161,6 +161,7 @@ for (i in seq_along(varnames)) {
                          # "access_type = access_type",   # not used by pin_write for a local board?
                          ")"
     )
+    # NOT via datawrite_to_pins() which was coded to write to a connect server, not to a local board (a folder)
 
     cat(" ", text_to_do, '\n')
     x <- eval(parse(text = text_to_do))
@@ -183,7 +184,7 @@ localboard %>% write_board_manifest()
 # because it copies dataset and manifest etc into the docs folder that you then commit/push to trigger gh action
 # PUBLISH updated pages including data pins  ####
 
-### pkgdown::build_site_github_pages()
+###
     pkgdown::build_site()
 
 # COMMIT AND PUSH CHANGES ####
@@ -209,11 +210,14 @@ browseURL("https://ejanalysis.github.io/ejscreendata/")
 library(pins)
 
 gurl <- "https://ejanalysis.github.io/ejscreendata/data/"
+# OR IS IT THIS:   ??
+# 'https://ejanalysis.github.io/ejscreendata/pins/'
+
 gboard  <- pins::board_url(gurl)
 
 gboard  %>% pins::pin_list()
 # gboard  %>% pins::pin_search()
-# gboard %>% pins::pin_read("blockwts")
+# gboard %>% pins::pin_read("bgid2fips")
 
 library(EJAM)
 EJAM::dataload_from_urlpins("bgid2fips", justchecking = TRUE)
@@ -221,10 +225,16 @@ EJAM::dataload_from_urlpins("bgid2fips", justchecking = TRUE)
 EJAM::dataload_from_urlpins("bgid2fips")
 
 
-####################################### #
-# not this way...
-#
-# datawrite_to_pins(  )
-# which was coded to write to a connect server, not to a local board (a folder)
+####################################### ######################################## #
 
-####################################### #
+### OLDER NOTES:   tried a few ways to use public pins...
+#
+# ## pin_download and read ipc ? ####
+# dl <- pin_download(gboard, 'bgid2fips')
+# arrow::read_ipc_file(dl)
+#
+# ## write_ipc? ####
+# arrow::write_ipc_file(bgid2fips, sink = 'pkgdown/assets/pins/bgid2fips/20240930T032500Z-04aae/bgid2fips.arrow',compression = 'zstd')
+#
+# ## read_ipc? ####
+# bgid2fips_zstd <- arrow::read_ipc_file('pkgdown/assets/pins/bgid2fips/20240930T032500Z-04aae/bgid2fips.arrow')
