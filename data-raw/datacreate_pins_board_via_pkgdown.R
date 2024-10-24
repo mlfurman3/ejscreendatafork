@@ -180,7 +180,7 @@ localboard %>% write_board_manifest()
 # fs::path(localboard$path, "_pins.yaml") %>% readLines() %>% cat(sep = "\n")
 ####################################### #
 
-#   have to do this step again if updated datasets/manifest
+#   have to do manifest and this step again if updated datasets/manifest
 # because it copies dataset and manifest etc into the docs folder that you then commit/push to trigger gh action
 # PUBLISH updated pages including data pins  ####
 
