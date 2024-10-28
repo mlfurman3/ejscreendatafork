@@ -1,0 +1,10 @@
+file: blockwts.parquet
+file_size: 70762330
+pin_hash: 8962eba3d4e297b9
+type: parquet
+title: 'blockwts: a pinned 8174955 x 4 data frame'
+description: ~
+tags: ~
+urls: ~
+created: 20241028T215747Z
+api_version: 1

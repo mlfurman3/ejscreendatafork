@@ -1,0 +1,10 @@
+file: blockid2fips.csv
+file_size: 211437748
+pin_hash: 6ce6c5dfe2e5b648
+type: csv
+title: 'blockid2fips: a pinned 8174955 x 2 data frame'
+description: ~
+tags: ~
+urls: ~
+created: 20241028T215903Z
+api_version: 1
