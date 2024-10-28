@@ -81,19 +81,19 @@ varnames <- allvarnames
 
 ####################################### #
 ## check data objects already loaded, or get them from local folder or even the posit connect server pins board ####
-x = EJAM::dataload_from_pins(varnames = 'all', justchecking = TRUE)
-if (is.null(x)) {
-  warning('lack access to pins board - might be able to get data from local copies but should confirm version is identical')
-}
-## if not in globalenv already, get from local folder or pins connect server if not local
-EJAM::dataload_from_pins("all")
-## confirm now all are in memory
-for (i in 1:length(varnames)) {
-  if (i == 1) {cat("\n\n")}
-  oname = varnames[i]
-  if (!exists(oname)) {stop(oname, ' not found')} else {cat(oname, '\n')}
-  if (i == length(varnames)) {cat("... all found. \n\n")}
-}
+# x = EJAM::dataload_from_pins(varnames = 'all', justchecking = TRUE)
+# if (is.null(x)) {
+#   warning('lack access to pins board - might be able to get data from local copies but should confirm version is identical')
+# }
+# ## if not in globalenv already, get from local folder or pins connect server if not local
+# EJAM::dataload_from_pins("all")
+# ## confirm now all are in memory
+# for (i in 1:length(varnames)) {
+#   if (i == 1) {cat("\n\n")}
+#   oname = varnames[i]
+#   if (!exists(oname)) {stop(oname, ' not found')} else {cat(oname, '\n')}
+#   if (i == length(varnames)) {cat("... all found. \n\n")}
+# }
 ####################################### #
 
 # metadata for pins board ####
@@ -102,20 +102,20 @@ for (i in 1:length(varnames)) {
 
 ### this is the metadata already inside each object (each dataset)
 ## we are checking the ejscreen_version info here:
-capture.output({
-  meta <- EJAM:::metadata_add(0)
-})
+# capture.output({
+#   meta <- EJAM:::metadata_add(0)
+# })
+# # print(meta)
+# 
+# ### this is the metadata to write to the pins board:
+# ###  A list containing additional metadata to store with the pin.
+# ###  When retrieving the pin, this will be stored in the user key, to avoid potential clashes with the metadata that pins itself use.
+# meta <- list(
+#   date_pins_updated = c(pinsUploadDate = as.character(Sys.Date())),
+#   # redundant - created date already stored by pins but ok
+#   ejscreen_version = attr(meta, "ejscreen_version")  # from the default value in metadata_add
+# )
 # print(meta)
-
-### this is the metadata to write to the pins board:
-###  A list containing additional metadata to store with the pin.
-###  When retrieving the pin, this will be stored in the user key, to avoid potential clashes with the metadata that pins itself use.
-meta <- list(
-  date_pins_updated = c(pinsUploadDate = as.character(Sys.Date())),
-  # redundant - created date already stored by pins but ok
-  ejscreen_version = attr(meta, "ejscreen_version")  # from the default value in metadata_add
-)
-print(meta)
 ####################################### ######################################## #
 ####################################### ######################################## #
 ####################################### ######################################## #
@@ -129,48 +129,50 @@ print(meta)
 # test for 1 first
 # varnames = varnames[1]
 # varnames = "bgid2fips"
-
-for (i in seq_along(varnames)) {
-
-  if (!exists(varnames[i])) {
-    warning(paste0("Cannot find ", varnames[i], " so it was not saved to pins."))
-  } else {
-    cat("pinning", varnames[i], "\n")
-
-    if (varnames[i] %in% metadata4pins$varlist) {
-      pin_name = metadata4pins$name[metadata4pins$varlist == varnames[i]]
-      pin_title = metadata4pins$title[metadata4pins$varlist == varnames[i]]
-      pin_description = metadata4pins$description[metadata4pins$varlist == varnames[i]]
-    } else {
-      pin_name = varnames[i]
-      pin_title = varnames[i]
-      pin_description = varnames[i]
-    }
-
-    type = "qs"
-
-    text_to_do <- paste0("pins::pin_write(",
-                         "board = localboard, ",
-                         "x = ", varnames[i],", ",
-                         "name = pin_name, ",
-                         "title = pin_title, ",
-                         "description = pin_description, ",
-                         # "versioned = TRUE, ",               # unlike datawrite_to_pins() versioning here would be done via a manifest probably
-                         "metadata = meta, ",
-                         "type = type ",
-                         # "access_type = access_type",   # not used by pin_write for a local board?
-                         ")"
-    )
-    # NOT via datawrite_to_pins() which was coded to write to a connect server, not to a local board (a folder)
-
-    cat(" ", text_to_do, '\n')
-    x <- eval(parse(text = text_to_do))
-    # executes the command with unquoted string that is the varnames[i] element, e.g., frs
-    rm(x)
-  }
-}
-rm( pin_name, pin_description, pin_title, i, type) # board, meta  may be used again
+# 
+# for (i in seq_along(varnames)) {
+# 
+#   if (!exists(varnames[i])) {
+#     warning(paste0("Cannot find ", varnames[i], " so it was not saved to pins."))
+#   } else {
+#     cat("pinning", varnames[i], "\n")
+# 
+#     if (varnames[i] %in% metadata4pins$varlist) {
+#       pin_name = metadata4pins$name[metadata4pins$varlist == varnames[i]]
+#       pin_title = metadata4pins$title[metadata4pins$varlist == varnames[i]]
+#       pin_description = metadata4pins$description[metadata4pins$varlist == varnames[i]]
+#     } else {
+#       pin_name = varnames[i]
+#       pin_title = varnames[i]
+#       pin_description = varnames[i]
+#     }
+# 
+#     type = "qs"
+# 
+#     text_to_do <- paste0("pins::pin_write(",
+#                          "board = localboard, ",
+#                          "x = ", varnames[i],", ",
+#                          "name = pin_name, ",
+#                          "title = pin_title, ",
+#                          "description = pin_description, ",
+#                          # "versioned = TRUE, ",               # unlike datawrite_to_pins() versioning here would be done via a manifest probably
+#                          "metadata = meta, ",
+#                          "type = type ",
+#                          # "access_type = access_type",   # not used by pin_write for a local board?
+#                          ")"
+#     )
+#     # NOT via datawrite_to_pins() which was coded to write to a connect server, not to a local board (a folder)
+# 
+#     cat(" ", text_to_do, '\n')
+#     x <- eval(parse(text = text_to_do))
+#     # executes the command with unquoted string that is the varnames[i] element, e.g., frs
+#     rm(x)
+#   }
+# }
+# rm( pin_name, pin_description, pin_title, i, type) # board, meta  may be used again
 ####################################### #
+
+localboard %>% pin_write(mtcars, type='qs')
 
 # WRITE MANIFEST every time files are updated/added, BEFORE PUBLISHING board ####
 
@@ -185,16 +187,16 @@ localboard %>% write_board_manifest()
 # PUBLISH updated pages including data pins  ####
 
 ###
-    pkgdown::build_site()
+   # pkgdown::build_site()
 
 # COMMIT AND PUSH CHANGES ####
 cat('commit changes and push to github now, then automatic republishing takes maybe 30 seconds after that \n')
 
 # AND
 
-browseURL("https://github.com/ejanalysis/ejscreendata/actions")
-browseURL("https://github.com/ejanalysis/ejscreendata/settings/pages")
-browseURL("https://ejanalysis.github.io/ejscreendata/")
+# browseURL("https://github.com/ejanalysis/ejscreendata/actions")
+# browseURL("https://github.com/ejanalysis/ejscreendata/settings/pages")
+# browseURL("https://ejanalysis.github.io/ejscreendata/")
 
 ####################################### ######################################## #
 ####################################### ######################################## #
@@ -207,22 +209,22 @@ browseURL("https://ejanalysis.github.io/ejscreendata/")
 
 # With an up-to-date manifest file, a board_url() can behave as a read-only version of a board_folder().
 
-library(pins)
-
-gurl <- "https://ejanalysis.github.io/ejscreendata/data/"
-# OR IS IT THIS:   ??
-# 'https://ejanalysis.github.io/ejscreendata/pins/'
-
-gboard  <- pins::board_url(gurl)
-
-gboard  %>% pins::pin_list()
-# gboard  %>% pins::pin_search()
-# gboard %>% pins::pin_read("bgid2fips")
-
-library(EJAM)
-EJAM::dataload_from_urlpins("bgid2fips", justchecking = TRUE)
-
-EJAM::dataload_from_urlpins("bgid2fips")
+# library(pins)
+# 
+# gurl <- "https://ejanalysis.github.io/ejscreendata/data/"
+# # OR IS IT THIS:   ??
+# # 'https://ejanalysis.github.io/ejscreendata/pins/'
+# 
+# gboard  <- pins::board_url(gurl)
+# 
+# gboard  %>% pins::pin_list()
+# # gboard  %>% pins::pin_search()
+# # gboard %>% pins::pin_read("bgid2fips")
+# 
+# library(EJAM)
+# EJAM::dataload_from_urlpins("bgid2fips", justchecking = TRUE)
+# 
+# EJAM::dataload_from_urlpins("bgid2fips")
 
 
 ####################################### ######################################## #
