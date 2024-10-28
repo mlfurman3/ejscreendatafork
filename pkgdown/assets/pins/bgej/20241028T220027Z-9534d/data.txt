@@ -1,0 +1,10 @@
+file: bgej.csv
+file_size: 184947759
+pin_hash: 9534dda8eaf873e0
+type: csv
+title: 'bgej: a pinned 242336 x 56 data frame'
+description: ~
+tags: ~
+urls: ~
+created: 20241028T220027Z
+api_version: 1
