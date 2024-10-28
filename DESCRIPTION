@@ -1,10 +1,10 @@
-Package: ejscreendata
+Package: ejscreendatafork
 Type: Package
 Title: Datasets for EJAM - EJScreen
 Version: 0.1.0
 Author: ejanalysis
 Maintainer: ejanalysis <info@ejanalysis.com>
-URL: https://ejanalysis.github.io/ejscreendata/
+URL: https://mlfurman3.github.io/ejscreendatafork/
 Description: Data tables of blockgroup demographics from EPA EJScreen
     and EPA-regulated facilities from EPA Facility Registry Services (FRS)
     etc. to support EJAM

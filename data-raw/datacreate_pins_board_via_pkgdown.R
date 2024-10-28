@@ -147,7 +147,7 @@ for (i in seq_along(varnames)) {
       pin_description = varnames[i]
     }
 
-    type = "arrow"
+    type = "qs"
 
     text_to_do <- paste0("pins::pin_write(",
                          "board = localboard, ",

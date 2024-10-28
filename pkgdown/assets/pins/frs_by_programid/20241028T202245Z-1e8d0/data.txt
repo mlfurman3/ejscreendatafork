@@ -1,0 +1,13 @@
+file: frs_by_programid.qs
+file_size: 76973457
+pin_hash: 1e8d040f551abf36
+type: qs
+title: frs_by_programid data from EJScreen for EJAM
+description: data.table -- See documentation in EJAM package
+tags: ~
+urls: ~
+created: 20241028T202245Z
+api_version: 1
+user:
+  date_pins_updated: '2024-10-28'
+  ejscreen_version: '2.32'

@@ -2,7 +2,7 @@ pandoc: 3.1.11
 pkgdown: 2.1.0
 pkgdown_sha: ~
 articles: {}
-last_built: 2024-10-24T21:26Z
+last_built: 2024-10-28T20:25Z
 urls:
-  reference: https://ejanalysis.github.io/ejscreendata/reference
-  article: https://ejanalysis.github.io/ejscreendata/articles
+  reference: https://mlfurman3.github.io/ejscreendatafork/reference
+  article: https://mlfurman3.github.io/ejscreendatafork/articles
