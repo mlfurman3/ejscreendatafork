@@ -18,5 +18,7 @@ frs_by_programid:
 - frs_by_programid/20241028T202245Z-1e8d0/
 frs_by_sic:
 - frs_by_sic/20241028T202247Z-0d59a/
+mtcars:
+- mtcars/20241028T211537Z-a8f96/
 quaddata:
 - quaddata/20241028T202226Z-985cf/
