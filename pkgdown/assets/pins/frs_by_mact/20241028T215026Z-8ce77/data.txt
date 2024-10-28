@@ -6,7 +6,7 @@ title: frs_by_mact data from EJScreen for EJAM
 description: data.table -- See documentation in EJAM package
 tags: ~
 urls: ~
-created: 20241028T202247Z
+created: 20241028T215026Z
 api_version: 1
 user:
   date_pins_updated: '2024-10-28'

@@ -7,7 +7,7 @@ description: data.frame -- approx 243k blockgroups, like blockgroupstats but for
   Index raw scores, with bgfips, bgid, etc. - See documentation in EJAM package
 tags: ~
 urls: ~
-created: 20241028T202229Z
+created: 20241028T215019Z
 api_version: 1
 user:
   date_pins_updated: '2024-10-28'

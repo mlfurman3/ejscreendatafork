@@ -1,12 +1,12 @@
-file: frs_by_sic.qs
-file_size: 11952278
-pin_hash: 0d59a6e3d5a03325
+file: frs_by_naics.qs
+file_size: 10117563
+pin_hash: 18329a4bcbd6ea79
 type: qs
-title: frs_by_sic data from EJScreen for EJAM
+title: frs_by_naics data from EJScreen for EJAM
 description: data.table -- See documentation in EJAM package
 tags: ~
 urls: ~
-created: 20241028T202247Z
+created: 20241028T215026Z
 api_version: 1
 user:
   date_pins_updated: '2024-10-28'
