@@ -1,0 +1,14 @@
+file: blockwts.qs
+file_size: 47941619
+pin_hash: eb50639c6ddbc053
+type: qs
+title: blockwts data from EJScreen for EJAM
+description: data.table of approx 8 million Census blocks with blockid, bgid, blockwt,
+  block_radius_miles - See documentation in EJAM package
+tags: ~
+urls: ~
+created: 20241028T202219Z
+api_version: 1
+user:
+  date_pins_updated: '2024-10-28'
+  ejscreen_version: '2.32'

@@ -1,0 +1,22 @@
+bgej:
+- bgej/20241028T202229Z-d8db8/
+bgid2fips:
+- bgid2fips/20241028T202230Z-7e039/
+blockid2fips:
+- blockid2fips/20241028T202225Z-44e3b/
+blockpoints:
+- blockpoints/20241028T202220Z-d662c/
+blockwts:
+- blockwts/20241028T202219Z-eb506/
+frs:
+- frs/20241028T202239Z-7e3bc/
+frs_by_mact:
+- frs_by_mact/20241028T202247Z-8ce77/
+frs_by_naics:
+- frs_by_naics/20241028T202246Z-18329/
+frs_by_programid:
+- frs_by_programid/20241028T202245Z-1e8d0/
+frs_by_sic:
+- frs_by_sic/20241028T202247Z-0d59a/
+quaddata:
+- quaddata/20241028T202226Z-985cf/
