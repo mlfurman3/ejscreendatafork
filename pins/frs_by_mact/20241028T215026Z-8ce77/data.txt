@@ -1,0 +1,13 @@
+file: frs_by_mact.qs
+file_size: 1697427
+pin_hash: 8ce77fe572c64e77
+type: qs
+title: frs_by_mact data from EJScreen for EJAM
+description: data.table -- See documentation in EJAM package
+tags: ~
+urls: ~
+created: 20241028T215026Z
+api_version: 1
+user:
+  date_pins_updated: '2024-10-28'
+  ejscreen_version: '2.32'

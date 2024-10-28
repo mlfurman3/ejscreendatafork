@@ -1,0 +1,14 @@
+file: blockid2fips.qs
+file_size: 10116704
+pin_hash: 44e3b3eb3c83e4f8
+type: qs
+title: blockid2fips data for EJAM
+description: data.table of approx 8 million Census blocks with Census FIPS for each
+  block ID - See documentation in EJAM package
+tags: ~
+urls: ~
+created: 20241028T215016Z
+api_version: 1
+user:
+  date_pins_updated: '2024-10-28'
+  ejscreen_version: '2.32'

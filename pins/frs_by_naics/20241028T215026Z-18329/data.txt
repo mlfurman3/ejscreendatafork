@@ -1,0 +1,13 @@
+file: frs_by_naics.qs
+file_size: 10117563
+pin_hash: 18329a4bcbd6ea79
+type: qs
+title: frs_by_naics data from EJScreen for EJAM
+description: data.table -- See documentation in EJAM package
+tags: ~
+urls: ~
+created: 20241028T215026Z
+api_version: 1
+user:
+  date_pins_updated: '2024-10-28'
+  ejscreen_version: '2.32'
