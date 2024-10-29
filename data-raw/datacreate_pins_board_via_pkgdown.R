@@ -187,7 +187,7 @@ localboard %>% write_board_manifest()
 # PUBLISH updated pages including data pins  ####
 
 ###
-   # pkgdown::build_site()
+   pkgdown::build_site()
 
 # COMMIT AND PUSH CHANGES ####
 cat('commit changes and push to github now, then automatic republishing takes maybe 30 seconds after that \n')
