@@ -1,0 +1,10 @@
+file: mtcars_arrow.arrow
+file_size: 4162
+pin_hash: 09bc95e548e1a4fd
+type: arrow
+title: 'mtcars_arrow: a pinned 32 x 11 data frame'
+description: ~
+tags: ~
+urls: ~
+created: 20241029T181042Z
+api_version: 1
