@@ -171,12 +171,12 @@ localboard = pins::board_folder(here::here("pkgdown/assets/pins"), versioned = F
 # }
 # rm( pin_name, pin_description, pin_title, i, type) # board, meta  may be used again
 ####################################### #
-#pin_write(localboard, mtcars, name='mtcars_rds')
-localboard %>% pin_write(mtcars, name='mtcars_json', type='json')
-# pin_write(localboard, mtcars, name='mtcars_parquet', type='parquet')
-# pin_write(localboard, mtcars, name='mtcars_qs', type='qs')
-# pin_write(localboard, mtcars, name='mtcars_csv', type='csv')
-# pin_write(localboard, mtcars, name='mtcars_arrow', type='arrow')
+pin_write(localboard, mtcars, name='mtcars_rds')
+localboard %>% pin_write(jsonlite::toJSON(mtcars), name='mtcars_json', type='json')
+pin_write(localboard, mtcars, name='mtcars_parquet', type='parquet')
+pin_write(localboard, mtcars, name='mtcars_qs', type='qs')
+pin_write(localboard, mtcars, name='mtcars_csv', type='csv')
+pin_write(localboard, mtcars, name='mtcars_arrow', type='arrow')
 # WRITE MANIFEST every time files are updated/added, BEFORE PUBLISHING board ####
 
 localboard %>% write_board_manifest()
