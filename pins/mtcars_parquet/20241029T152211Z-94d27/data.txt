@@ -1,0 +1,10 @@
+file: mtcars_parquet.parquet
+file_size: 2709
+pin_hash: 94d2775db6d1a86c
+type: parquet
+title: 'mtcars_parquet: a pinned 32 x 11 data frame'
+description: ~
+tags: ~
+urls: ~
+created: 20241029T152211Z
+api_version: 1
