@@ -1,12 +1,2 @@
-mtcars_arrow:
-- mtcars_arrow/20241029T183308Z-09bc9/
-mtcars_csv:
-- mtcars_csv/20241029T183308Z-48c73/
-mtcars_json:
-- mtcars_json/20241029T183308Z-636fb/
-mtcars_parquet:
-- mtcars_parquet/20241029T183308Z-94d27/
-mtcars_qs:
-- mtcars_qs/20241029T183308Z-a8f96/
-mtcars_rds:
-- mtcars_rds/20241029T183308Z-b9134/
+blockwts:
+- blockwts/20241029T204209Z-e4632/
