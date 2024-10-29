@@ -1,12 +1,2 @@
-mtcars:
-- mtcars/20241029T153119Z-c2702/
-mtcars_arrow:
-- mtcars_arrow/20241029T153120Z-09bc9/
-mtcars_csv:
-- mtcars_csv/20241029T153120Z-48c73/
-mtcars_parquet:
-- mtcars_parquet/20241029T153119Z-94d27/
-mtcars_qs:
-- mtcars_qs/20241029T153120Z-a8f96/
-mtcars_rds:
-- mtcars_rds/20241029T153119Z-b9134/
+mtcars_json:
+- mtcars_json/20241029T173631Z-c2702/
