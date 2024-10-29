@@ -18,5 +18,17 @@ frs_by_programid:
 - frs_by_programid/20241029T151247Z-6ba26/
 frs_by_sic:
 - frs_by_sic/20241029T151250Z-b5931/
+mtcars_arrow:
+- mtcars_arrow/20241029T152151Z-09bc9/
+mtcars_csv:
+- mtcars_csv/20241029T152219Z-48c73/
+mtcars_json:
+- mtcars_json/20241029T152241Z-c2702/
+mtcars_parquet:
+- mtcars_parquet/20241029T152211Z-94d27/
+mtcars_qs:
+- mtcars_qs/20241029T152202Z-a8f96/
+mtcars_rds:
+- mtcars_rds/20241029T152141Z-b9134/
 quaddata:
 - quaddata/20241029T151217Z-066fa/
