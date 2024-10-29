@@ -1,0 +1,10 @@
+file: bgid2fips.rds
+file_size: 55
+pin_hash: 02d076175c8ba765
+type: rds
+title: 'bgid2fips: a pinned character vector'
+description: ~
+tags: ~
+urls: ~
+created: 20241029T150127Z
+api_version: 1

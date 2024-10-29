@@ -1,0 +1,10 @@
+file: frs_by_naics.rds
+file_size: 58
+pin_hash: 173d0dbffd8414b3
+type: rds
+title: 'frs_by_naics: a pinned character vector'
+description: ~
+tags: ~
+urls: ~
+created: 20241029T150128Z
+api_version: 1
