@@ -132,42 +132,42 @@ localboard = pins::board_folder(here::here("pkgdown/assets/pins"), versioned = F
 # 
 # for (i in seq_along(varnames)) {
 # 
-#   if (!exists(varnames[i])) {
-#     warning(paste0("Cannot find ", varnames[i], " so it was not saved to pins."))
-#   } else {
-#     cat("pinning", varnames[i], "\n")
-# 
-#     if (varnames[i] %in% metadata4pins$varlist) {
-#       pin_name = metadata4pins$name[metadata4pins$varlist == varnames[i]]
-#       pin_title = metadata4pins$title[metadata4pins$varlist == varnames[i]]
-#       pin_description = metadata4pins$description[metadata4pins$varlist == varnames[i]]
-#     } else {
-#       pin_name = varnames[i]
-#       pin_title = varnames[i]
-#       pin_description = varnames[i]
-#     }
-# 
-#     type = "arrow"
-# 
-#     text_to_do <- paste0("pins::pin_write(",
-#                          "board = localboard, ",
-#                          "x = ", varnames[i],", ",
-#                          "name = pin_name, ",
-#                          "title = pin_title, ",
-#                          "description = pin_description, ",
-#                          # "versioned = TRUE, ",               # unlike datawrite_to_pins() versioning here would be done via a manifest probably
-#                          "metadata = meta, ",
-#                          "type = type ",
-#                          # "access_type = access_type",   # not used by pin_write for a local board?
-#                          ")"
-#     )
-#     # NOT via datawrite_to_pins() which was coded to write to a connect server, not to a local board (a folder)
-# 
-#     cat(" ", text_to_do, '\n')
-#     x <- eval(parse(text = text_to_do))
-#     # executes the command with unquoted string that is the varnames[i] element, e.g., frs
-#     rm(x)
-#   }
+  if (!exists(varnames[i])) {
+    warning(paste0("Cannot find ", varnames[i], " so it was not saved to pins."))
+  } else {
+    cat("pinning", varnames[i], "\n")
+
+    if (varnames[i] %in% metadata4pins$varlist) {
+      pin_name = metadata4pins$name[metadata4pins$varlist == varnames[i]]
+      pin_title = metadata4pins$title[metadata4pins$varlist == varnames[i]]
+      pin_description = metadata4pins$description[metadata4pins$varlist == varnames[i]]
+    } else {
+      pin_name = varnames[i]
+      pin_title = varnames[i]
+      pin_description = varnames[i]
+    }
+
+    type = "arrow"
+
+    text_to_do <- paste0("pins::pin_write(",
+                         "board = localboard, ",
+                         "x = ", varnames[i],", ",
+                         "name = pin_name, ",
+                         "title = pin_title, ",
+                         "description = pin_description, ",
+                         # "versioned = TRUE, ",               # unlike datawrite_to_pins() versioning here would be done via a manifest probably
+                         "metadata = meta, ",
+                         "type = type ",
+                         # "access_type = access_type",   # not used by pin_write for a local board?
+                         ")"
+    )
+    # NOT via datawrite_to_pins() which was coded to write to a connect server, not to a local board (a folder)
+
+    cat(" ", text_to_do, '\n')
+    x <- eval(parse(text = text_to_do))
+    # executes the command with unquoted string that is the varnames[i] element, e.g., frs
+    rm(x)
+  }
 # }
 # rm( pin_name, pin_description, pin_title, i, type) # board, meta  may be used again
 ####################################### #
