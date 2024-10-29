@@ -1,0 +1,14 @@
+file: blockwts.rds
+file_size: 48255233
+pin_hash: 1aac86755e988b1b
+type: rds
+title: blockwts data from EJScreen for EJAM
+description: data.table of approx 8 million Census blocks with blockid, bgid, blockwt,
+  block_radius_miles - See documentation in EJAM package
+tags: ~
+urls: ~
+created: 20241029T143531Z
+api_version: 1
+user:
+  date_pins_updated: '2024-10-28'
+  ejscreen_version: '2.32'

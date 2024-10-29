@@ -1,0 +1,15 @@
+file: quaddata.rds
+file_size: 185105312
+pin_hash: 066fa2cbe5c89957
+type: rds
+title: quaddata data for EJAM
+description: data.table of approx 8 million Census blocks with BLOCK_X, BLOCK_Z, BLOCK_Y,
+  blockid, used to create index of all US block point locations - See documentation
+  in EJAM package
+tags: ~
+urls: ~
+created: 20241029T143616Z
+api_version: 1
+user:
+  date_pins_updated: '2024-10-28'
+  ejscreen_version: '2.32'

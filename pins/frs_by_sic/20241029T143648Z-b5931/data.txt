@@ -1,0 +1,13 @@
+file: frs_by_sic.rds
+file_size: 10666577
+pin_hash: b59311b47f68ec14
+type: rds
+title: frs_by_sic data from EJScreen for EJAM
+description: data.table -- See documentation in EJAM package
+tags: ~
+urls: ~
+created: 20241029T143648Z
+api_version: 1
+user:
+  date_pins_updated: '2024-10-28'
+  ejscreen_version: '2.32'
