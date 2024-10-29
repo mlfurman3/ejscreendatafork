@@ -240,3 +240,31 @@ cat('commit changes and push to github now, then automatic republishing takes ma
 #
 # ## read_ipc? ####
 # bgid2fips_zstd <- arrow::read_ipc_file('pkgdown/assets/pins/bgid2fips/20240930T032500Z-04aae/bgid2fips.arrow')
+
+
+sapply(pin_list(myboard), function(a) pin_meta(myboard,a)$type)
+# bgej        bgid2fips     blockid2fips      blockpoints         blockwts              frs      frs_by_mact     frs_by_naics frs_by_programid 
+# "csv"            "rds"            "csv"             "qs"        "parquet"             "qs"             "qs"             "qs"             "qs" 
+# frs_by_sic           mtcars         quaddata 
+# "qs"           "json"             "qs" 
+
+npins <- length(pin_list(myboard))
+status <- rep(NA, npins)
+
+## csv - maybe works but very slow
+pin_download(myboard,'bgej')
+pin_read(myboard,'bgej')
+pin_read(myboard, 'blockid2fips')
+
+## qs - does not work
+pin_read(myboard, 'frs')
+# Error in qs::qread(path, strict = TRUE) : QS format not detected
+
+## rds - works and quickly
+pin_read(myboard,'bgid2fips')
+
+## parquet - does not work
+pin_read(myboard, 'blockwts')
+# Error in nanoparquet::read_parquet(path) : 
+#   No leading magic bytes, invalid Parquet file at '/home/workbench/home/ad.abt.local/furmanm/.cache/pins/url/08c640eef30d6114b04d30c004cc6c27/blockwts.parquet' @ lib/ParquetFile.cpp:69
+
