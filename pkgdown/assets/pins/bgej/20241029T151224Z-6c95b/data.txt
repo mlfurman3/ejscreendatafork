@@ -1,0 +1,10 @@
+file: bgej.rds
+file_size: 79941357
+pin_hash: 6c95b8af650cb7f2
+type: rds
+title: 'bgej: a pinned 242336 x 56 data frame'
+description: ~
+tags: ~
+urls: ~
+created: 20241029T151224Z
+api_version: 1

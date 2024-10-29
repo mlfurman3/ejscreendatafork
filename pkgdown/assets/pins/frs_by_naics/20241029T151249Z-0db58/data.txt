@@ -1,0 +1,10 @@
+file: frs_by_naics.rds
+file_size: 9035604
+pin_hash: 0db5845e2702fd1d
+type: rds
+title: 'frs_by_naics: a pinned 600751 x 4 data frame'
+description: ~
+tags: ~
+urls: ~
+created: 20241029T151249Z
+api_version: 1
