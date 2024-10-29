@@ -1,0 +1,10 @@
+file: mtcars_qs.qs
+file_size: 1429
+pin_hash: a8f96912dd26fc85
+type: qs
+title: 'mtcars_qs: a pinned 32 x 11 data frame'
+description: ~
+tags: ~
+urls: ~
+created: 20241029T183308Z
+api_version: 1
