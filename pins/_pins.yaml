@@ -1,34 +1,12 @@
-bgej:
-- bgej/20241029T151224Z-6c95b/
-bgid2fips:
-- bgid2fips/20241029T151225Z-cd806/
-blockid2fips:
-- blockid2fips/20241029T151158Z-9da5d/
-blockpoints:
-- blockpoints/20241029T151147Z-f008b/
-blockwts:
-- blockwts/20241029T151132Z-1aac8/
-frs:
-- frs/20241029T151236Z-e4ed0/
-frs_by_mact:
-- frs_by_mact/20241029T151251Z-8c19d/
-frs_by_naics:
-- frs_by_naics/20241029T151249Z-0db58/
-frs_by_programid:
-- frs_by_programid/20241029T151247Z-6ba26/
-frs_by_sic:
-- frs_by_sic/20241029T151250Z-b5931/
+mtcars:
+- mtcars/20241029T153119Z-c2702/
 mtcars_arrow:
-- mtcars_arrow/20241029T152151Z-09bc9/
+- mtcars_arrow/20241029T153120Z-09bc9/
 mtcars_csv:
-- mtcars_csv/20241029T152219Z-48c73/
-mtcars_json:
-- mtcars_json/20241029T152241Z-c2702/
+- mtcars_csv/20241029T153120Z-48c73/
 mtcars_parquet:
-- mtcars_parquet/20241029T152211Z-94d27/
+- mtcars_parquet/20241029T153119Z-94d27/
 mtcars_qs:
-- mtcars_qs/20241029T152202Z-a8f96/
+- mtcars_qs/20241029T153120Z-a8f96/
 mtcars_rds:
-- mtcars_rds/20241029T152141Z-b9134/
-quaddata:
-- quaddata/20241029T151217Z-066fa/
+- mtcars_rds/20241029T153119Z-b9134/
