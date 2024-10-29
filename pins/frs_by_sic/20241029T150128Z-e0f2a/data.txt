@@ -1,0 +1,10 @@
+file: frs_by_sic.rds
+file_size: 56
+pin_hash: e0f2a11b1df28c39
+type: rds
+title: 'frs_by_sic: a pinned character vector'
+description: ~
+tags: ~
+urls: ~
+created: 20241029T150128Z
+api_version: 1
