@@ -1,0 +1,10 @@
+file: mtcars_json.json
+file_size: 4981
+pin_hash: 636fb1311b88e0df
+type: json
+title: 'mtcars_json: a pinned character vector'
+description: ~
+tags: ~
+urls: ~
+created: 20241029T180006Z
+api_version: 1
