@@ -39,7 +39,7 @@
 library(usethis)
 library(pins)
 library(pkgdown)
-library(EJAM) # once it is public...
+ # once it is public...
 # see https://usepa.github.io/EJAM/articles/1_installing.html
 
 ## did once already - only need to do it once ever ####
@@ -74,10 +74,10 @@ localboard = pins::board_folder(here::here("pkgdown/assets/pins"))
 #   "bgid2fips", "frs", "frs_by_programid", "frs_by_naics", "frs_by_sic",
 #   "frs_by_mact")
 
-allvarnames = c("blockwts", "blockpoints", "blockid2fips", "quaddata", "bgej",
-             "bgid2fips", "frs", "frs_by_programid", "frs_by_naics", "frs_by_sic",
-             "frs_by_mact")
-varnames <- allvarnames
+# allvarnames = c("blockwts", "blockpoints", "blockid2fips", "quaddata", "bgej",
+#              "bgid2fips", "frs", "frs_by_programid", "frs_by_naics", "frs_by_sic",
+#              "frs_by_mact")
+# varnames <- allvarnames
 
 ####################################### #
 ## check data objects already loaded, or get them from local folder or even the posit connect server pins board ####
@@ -130,50 +130,53 @@ varnames <- allvarnames
 # varnames = varnames[1]
 # varnames = "bgid2fips"
 # 
-for (i in seq_along(varnames)) {
-
-  if (!exists(varnames[i])) {
-    warning(paste0("Cannot find ", varnames[i], " so it was not saved to pins."))
-  } else {
-    cat("pinning", varnames[i], "\n")
-
-    if (varnames[i] %in% metadata4pins$varlist) {
-      pin_name = metadata4pins$name[metadata4pins$varlist == varnames[i]]
-      pin_title = metadata4pins$title[metadata4pins$varlist == varnames[i]]
-      pin_description = metadata4pins$description[metadata4pins$varlist == varnames[i]]
-    } else {
-      pin_name = varnames[i]
-      pin_title = varnames[i]
-      pin_description = varnames[i]
-    }
-
-    type = "json"
-
-    text_to_do <- paste0("pins::pin_write(",
-                         "board = localboard, ",
-                         "x = ", varnames[i],", ",
-                         "name = pin_name, ",
-                         "title = pin_title, ",
-                         "description = pin_description, ",
-                         # "versioned = TRUE, ",               # unlike datawrite_to_pins() versioning here would be done via a manifest probably
-                         "metadata = meta, ",
-                         "type = type ",
-                         # "access_type = access_type",   # not used by pin_write for a local board?
-                         ")"
-    )
-    # NOT via datawrite_to_pins() which was coded to write to a connect server, not to a local board (a folder)
-
-    cat(" ", text_to_do, '\n')
-    x <- eval(parse(text = text_to_do))
-    # executes the command with unquoted string that is the varnames[i] element, e.g., frs
-    rm(x)
-  }
-}
+# for (i in seq_along(varnames)) {
+# 
+#   if (!exists(varnames[i])) {
+#     warning(paste0("Cannot find ", varnames[i], " so it was not saved to pins."))
+#   } else {
+#     cat("pinning", varnames[i], "\n")
+# 
+#     if (varnames[i] %in% metadata4pins$varlist) {
+#       pin_name = metadata4pins$name[metadata4pins$varlist == varnames[i]]
+#       pin_title = metadata4pins$title[metadata4pins$varlist == varnames[i]]
+#       pin_description = metadata4pins$description[metadata4pins$varlist == varnames[i]]
+#     } else {
+#       pin_name = varnames[i]
+#       pin_title = varnames[i]
+#       pin_description = varnames[i]
+#     }
+# 
+#     type = "arrow"
+# 
+#     text_to_do <- paste0("pins::pin_write(",
+#                          "board = localboard, ",
+#                          "x = ", varnames[i],", ",
+#                          "name = pin_name, ",
+#                          "title = pin_title, ",
+#                          "description = pin_description, ",
+#                          # "versioned = TRUE, ",               # unlike datawrite_to_pins() versioning here would be done via a manifest probably
+#                          "metadata = meta, ",
+#                          "type = type ",
+#                          # "access_type = access_type",   # not used by pin_write for a local board?
+#                          ")"
+#     )
+#     # NOT via datawrite_to_pins() which was coded to write to a connect server, not to a local board (a folder)
+# 
+#     cat(" ", text_to_do, '\n')
+#     x <- eval(parse(text = text_to_do))
+#     # executes the command with unquoted string that is the varnames[i] element, e.g., frs
+#     rm(x)
+#   }
+# }
 # rm( pin_name, pin_description, pin_title, i, type) # board, meta  may be used again
 ####################################### #
-
+pin_write(localboard, mtcars, name='mtcars_rds')
 localboard %>% pin_write(mtcars, type='json')
-
+pin_write(localboard, mtcars, name='mtcars_parquet', type='parquet')
+pin_write(localboard, mtcars, name='mtcars_qs', type='qs')
+pin_write(localboard, mtcars, name='mtcars_csv', type='csv')
+pin_write(localboard, mtcars, name='mtcars_arrow', type='arrow')
 # WRITE MANIFEST every time files are updated/added, BEFORE PUBLISHING board ####
 
 localboard %>% write_board_manifest()
@@ -187,10 +190,10 @@ localboard %>% write_board_manifest()
 # PUBLISH updated pages including data pins  ####
 
 ###
-   pkgdown::build_site()
+   #pkgdown::build_site()
 
 # COMMIT AND PUSH CHANGES ####
-cat('commit changes and push to github now, then automatic republishing takes maybe 30 seconds after that \n')
+#cat('commit changes and push to github now, then automatic republishing takes maybe 30 seconds after that \n')
 
 # AND
 
@@ -241,30 +244,37 @@ cat('commit changes and push to github now, then automatic republishing takes ma
 # ## read_ipc? ####
 # bgid2fips_zstd <- arrow::read_ipc_file('pkgdown/assets/pins/bgid2fips/20240930T032500Z-04aae/bgid2fips.arrow')
 
-
-sapply(pin_list(myboard), function(a) pin_meta(myboard,a)$type)
-# bgej        bgid2fips     blockid2fips      blockpoints         blockwts              frs      frs_by_mact     frs_by_naics frs_by_programid 
-# "csv"            "rds"            "csv"             "qs"        "parquet"             "qs"             "qs"             "qs"             "qs" 
-# frs_by_sic           mtcars         quaddata 
-# "qs"           "json"             "qs" 
-
-npins <- length(pin_list(myboard))
-status <- rep(NA, npins)
-
-## csv - maybe works but very slow
-pin_download(myboard,'bgej')
-pin_read(myboard,'bgej')
-pin_read(myboard, 'blockid2fips')
-
-## qs - does not work
-pin_read(myboard, 'frs')
-# Error in qs::qread(path, strict = TRUE) : QS format not detected
-
-## rds - works and quickly
-pin_read(myboard,'bgid2fips')
-
-## parquet - does not work
-pin_read(myboard, 'blockwts')
-# Error in nanoparquet::read_parquet(path) : 
-#   No leading magic bytes, invalid Parquet file at '/home/workbench/home/ad.abt.local/furmanm/.cache/pins/url/08c640eef30d6114b04d30c004cc6c27/blockwts.parquet' @ lib/ParquetFile.cpp:69
+# 
+# sapply(pin_list(myboard), function(a) pin_meta(myboard,a)$type)
+# # bgej        bgid2fips     blockid2fips      blockpoints         blockwts              frs      frs_by_mact     frs_by_naics frs_by_programid 
+# # "csv"            "rds"            "csv"             "qs"        "parquet"             "qs"             "qs"             "qs"             "qs" 
+# # frs_by_sic           mtcars         quaddata 
+# # "qs"           "json"             "qs" 
+# 
+# npins <- length(pin_list(myboard))
+# status <- rep(NA, npins)
+# 
+# ## csv - maybe works but very slow
+# pin_download(myboard,'bgej')
+# pin_read(myboard,'bgej')
+# pin_read(myboard, 'blockid2fips')
+# 
+# ## qs - does not work
+# pin_read(myboard, 'frs')
+# # Error in qs::qread(path, strict = TRUE) : QS format not detected
+# 
+# ## rds - works and quickly
+# pin_read(localboard,'bgid2fips')
+# 
+# ## parquet - does not work
+# pin_read(myboard, 'blockwts')
+# # Error in nanoparquet::read_parquet(path) : 
+# #   No leading magic bytes, invalid Parquet file at '/home/workbench/home/ad.abt.local/furmanm/.cache/pins/url/08c640eef30d6114b04d30c004cc6c27/blockwts.parquet' @ lib/ParquetFile.cpp:69
+# 
+# ## json - doesnot work
+# pin_read(myboard,'frs')
+# Error in parse_con(txt, bigint_as_char) : 
+# lexical error: invalid char in json text.
+# version https://git-lfs.github.
+# (right here) ------^
 
