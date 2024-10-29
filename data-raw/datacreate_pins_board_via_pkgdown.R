@@ -57,7 +57,7 @@ if (!dir.exists(here::here("pkgdown/assets/pins"))) {
 }
 # local pins board will be in pkgdown/assets/data ####
 cat('creating a local folder as a pins board, in a folder that will get published to a github pages pkgdown website\n')
-localboard = pins::board_folder(here::here("pkgdown/assets/pins"))
+localboard = pins::board_folder(here::here("pkgdown/assets/pins"), versioned = FALSE)
 
 ############################################################# #
 
@@ -172,7 +172,7 @@ localboard = pins::board_folder(here::here("pkgdown/assets/pins"))
 # rm( pin_name, pin_description, pin_title, i, type) # board, meta  may be used again
 ####################################### #
 pin_write(localboard, mtcars, name='mtcars_rds')
-localboard %>% pin_write(mtcars, type='json')
+localboard %>% pin_write(mtcars, name='mtcars_json', type='json')
 pin_write(localboard, mtcars, name='mtcars_parquet', type='parquet')
 pin_write(localboard, mtcars, name='mtcars_qs', type='qs')
 pin_write(localboard, mtcars, name='mtcars_csv', type='csv')
